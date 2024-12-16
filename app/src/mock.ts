@@ -15,6 +15,20 @@ const worker = setupWorker(
         statusText: "Mocked status",
       }
     );
+  }),
+  // Handle POST requests.
+  http.post(`https://github.com/octocat`, async ({ request }) => {
+    // const body = await request.json(); // Parse the JSON body of the request
+    return HttpResponse.json(
+      {
+        message: "Mocked POST response",
+        received: "hello", // Echo the received body in the response
+      },
+      {
+        status: 201,
+        statusText: "Created",
+      }
+    );
   })
 );
 

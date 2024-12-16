@@ -16,7 +16,12 @@ function App() {
         method: "GET",
         cache: "no-cache",
       });
+
+      const postResult = await fetch("https://github.com/octocat", {
+        method: "POST",
+      });
       console.log({ result: await result.json() });
+      console.log({ postResult: await postResult.json() });
     })();
   }, []);
   return (
