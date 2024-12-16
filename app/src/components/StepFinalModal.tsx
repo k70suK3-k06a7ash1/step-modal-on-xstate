@@ -22,7 +22,7 @@ export const StepFinalModal = () => {
     actor.send({ type: EVENT_SYMBOL.STEP_UP });
   };
   return (
-    <AlertDialogContent className="min-w-full">
+    <AlertDialogContent>
       <AlertDialogHeader>
         <AlertDialogTitle>final Modal</AlertDialogTitle>
         <AlertDialogDescription></AlertDialogDescription>
