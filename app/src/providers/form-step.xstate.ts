@@ -1,18 +1,6 @@
 import { setup } from "xstate";
 import { createActorContext } from "@xstate/react";
-
-const AUTOMATON = {
-  DEFAULT: "default",
-  STEP_FIRST: "step-1",
-  STEP_SECOND: "step-2",
-  STEP_THIRD: "step-3",
-  FINAL: "step-final",
-} as const;
-
-const EVENT_SYMBOL = {
-  STEP_UP: "step-up",
-  STEP_DOWN: "step-down",
-} as const;
+import { AUTOMATON, EVENT_SYMBOL } from "@/constants";
 
 type Events =
   | {
@@ -30,28 +18,37 @@ export const formStep = setup({
     [AUTOMATON.DEFAULT]: {
       on: {
         [EVENT_SYMBOL.STEP_UP]: {
-          target: AUTOMATON.STEP_FIRST,
+          target: AUTOMATON.FIRST,
         },
       },
     },
-    [AUTOMATON.STEP_FIRST]: {
+    [AUTOMATON.FIRST]: {
       on: {
         [EVENT_SYMBOL.STEP_UP]: {
-          target: AUTOMATON.STEP_SECOND,
+          target: AUTOMATON.SECOND,
+        },
+        [EVENT_SYMBOL.STEP_DOWN]: {
+          target: AUTOMATON.DEFAULT,
         },
       },
     },
-    [AUTOMATON.STEP_SECOND]: {
+    [AUTOMATON.SECOND]: {
       on: {
         [EVENT_SYMBOL.STEP_UP]: {
-          target: AUTOMATON.STEP_THIRD,
+          target: AUTOMATON.THIRD,
+        },
+        [EVENT_SYMBOL.STEP_DOWN]: {
+          target: AUTOMATON.FIRST,
         },
       },
     },
-    [AUTOMATON.STEP_THIRD]: {
+    [AUTOMATON.THIRD]: {
       on: {
         [EVENT_SYMBOL.STEP_UP]: {
           target: AUTOMATON.FINAL,
+        },
+        [EVENT_SYMBOL.STEP_DOWN]: {
+          target: AUTOMATON.SECOND,
         },
       },
     },
