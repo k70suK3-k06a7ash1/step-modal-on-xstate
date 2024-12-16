@@ -1,4 +1,5 @@
 import { setup } from "xstate";
+import { createActorContext } from "@xstate/react";
 
 const AUTOMATON = {
   DEFAULT: "default",
@@ -57,3 +58,5 @@ export const formStep = setup({
     [AUTOMATON.FINAL]: {},
   },
 });
+
+export const FormStepProvider = createActorContext(formStep);
