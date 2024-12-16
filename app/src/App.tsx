@@ -11,17 +11,11 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      // await worker.start();
-      const result = await fetch("https://github.com/octocat", {
-        method: "GET",
-        cache: "no-cache",
-      });
-
-      const postResult = await fetch("https://github.com/octocat", {
-        method: "POST",
-      });
-      console.log({ result: await result.json() });
-      console.log({ postResult: await postResult.json() });
+      // // await worker.start();
+      // const result = await fetch("https://github.com/octocat", {
+      //   method: "GET",
+      //   cache: "no-cache",
+      // });
     })();
   }, []);
   return (

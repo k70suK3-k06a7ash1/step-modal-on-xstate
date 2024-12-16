@@ -7,8 +7,18 @@ type Props = {
 export const useFormState = ({ afterSubmitAction }: Props) => {
   const form = useForm({
     onSubmit: async () => {
-      console.log("run submit");
-      afterSubmitAction();
+      try {
+        const postResult = await fetch("https://github.com/octocat", {
+          method: "POST",
+        });
+        console.log("run");
+
+        console.log({ postResult: await postResult.json() });
+        if (postResult.ok) {
+          afterSubmitAction();
+        }
+      } finally {
+      }
     },
   });
   return { form };
