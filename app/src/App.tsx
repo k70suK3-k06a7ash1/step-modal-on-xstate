@@ -3,7 +3,6 @@ import "./App.css";
 import { FormStepProvider } from "@/providers/form-step.xstate";
 import { EVENT_SYMBOL } from "@/constants";
 import { useEffect } from "react";
-import { worker } from "@/mock";
 
 function App() {
   const { useActorRef } = FormStepProvider;
@@ -12,7 +11,7 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      await worker.start();
+      // await worker.start();
       const result = await fetch("https://github.com/octocat", {
         method: "GET",
         cache: "no-cache",
