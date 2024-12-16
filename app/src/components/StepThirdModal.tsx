@@ -28,7 +28,9 @@ export const StepThirdModal = () => {
         <AlertDialogDescription></AlertDialogDescription>
       </AlertDialogHeader>
       <AlertDialogFooter>
-        <Button onClick={handleChangeStepDown}>Cancel</Button>
+        <Button variant={"destructive"} onClick={handleChangeStepDown}>
+          Cancel
+        </Button>
         <Button onClick={handleChangeStepUp}>Next</Button>
       </AlertDialogFooter>
     </AlertDialogContent>
