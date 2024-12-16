@@ -1,3 +1,4 @@
+import { client } from "@/client";
 import { useForm } from "@tanstack/react-form";
 import { DispatchWithoutAction } from "react";
 
@@ -8,9 +9,7 @@ export const useFormState = ({ afterSubmitAction }: Props) => {
   const form = useForm({
     onSubmit: async () => {
       try {
-        const postResult = await fetch("https://github.com/octocat", {
-          method: "POST",
-        });
+        const postResult = await client.POST("https://github.com/octocat");
         console.log("run");
 
         console.log({ postResult: await postResult.json() });
