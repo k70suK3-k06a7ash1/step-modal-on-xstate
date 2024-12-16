@@ -28,7 +28,7 @@ export const FormProvider = () => {
       open={value !== AUTOMATON.DEFAULT}
       onOpenChange={handleChangeStepDown}
     >
-      <AlertDialogContent>
+      <AlertDialogContent className="min-w-full">
         <AlertDialogHeader>
           <AlertDialogTitle>Step Modal</AlertDialogTitle>
           <AlertDialogDescription>
@@ -37,9 +37,7 @@ export const FormProvider = () => {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction asChild>
-            <Button onClick={handleChangeStepUp}>Next</Button>
-          </AlertDialogAction>
+          <Button onClick={handleChangeStepUp}>Next</Button>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

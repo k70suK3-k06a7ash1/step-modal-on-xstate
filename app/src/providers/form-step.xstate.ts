@@ -52,7 +52,16 @@ export const formStep = setup({
         },
       },
     },
-    [AUTOMATON.FINAL]: {},
+    [AUTOMATON.FINAL]: {
+      on: {
+        [EVENT_SYMBOL.STEP_UP]: {
+          target: AUTOMATON.DEFAULT,
+        },
+        [EVENT_SYMBOL.STEP_DOWN]: {
+          target: AUTOMATON.THIRD,
+        },
+      },
+    },
   },
 });
 
