@@ -1,7 +1,7 @@
-import { StepFinalModal } from "@/components/StepFinalModal";
-import { StepFirstModal } from "@/components/StepFirstModal";
-import { StepSecondModal } from "@/components/StepSecondModal";
-import { StepThirdModal } from "@/components/StepThirdModal";
+import { StepFinalModal } from "@/components/step-modal/StepFinalModal";
+import { StepFirstModal } from "@/components/step-modal/StepFirstModal";
+import { StepSecondModal } from "@/components/step-modal/StepSecondModal";
+import { StepThirdModal } from "@/components/step-modal/StepThirdModal";
 import { AUTOMATON } from "@/constants";
 import { Automaton } from "@/types";
 
